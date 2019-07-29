@@ -23,6 +23,10 @@ h1 {
     padding: 15px;
 }
 
+.top h1 {
+    font-size: 3em;
+}
+
 h3,
 p {
     color: #a2a2ac;
@@ -70,6 +74,11 @@ header {
     box-shadow: 5px 5px 5px rgb(185, 146, 146);
 }
 
+#winner img {
+    margin: 10px 315px;
+    width: 300px;
+}
+
 .top2 {
     /* border: 1px solid #fff; */
     width: 40%;
@@ -91,7 +100,7 @@ header {
     clear: both;
     /* border: 1px solid #fff; */
     width: 40%;
-    height: 400px;
+    height: 350px;
 }
 
 #new {
@@ -116,12 +125,12 @@ header {
 .bottomLeft,
 .bottomRight {
     width: 30%;
-    height: 350px;
+    height: 305px;
 }
 
 .bottomMiddle {
     width: 20%;
-    height: 350px;
+    height: 305px;
 }
 
 .top2 img {
@@ -138,4 +147,24 @@ header {
 #vs img {
     margin: 120px 25px;
     width: 80px;
+}
+
+.button {
+    /* border: 1px solid #fff; */
+    width: 40%;
+    height: 80px;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    margin: 20px 233px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.3em;
+    background-color: #4d4d4f;
+}
+
+.top button {
+    margin: 20px 375px;
 }
