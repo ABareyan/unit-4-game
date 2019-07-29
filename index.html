@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -15,7 +16,84 @@
 
 
 <body>
+    <!-- header -->
+    <header>
+        <h1>STAR WARS RPG!</h1>
+    </header>
+    <!-- end of header -->
+    <audio id="star">
+        <source src="assets/sound/star.mp3" type="audio/mpeg">
+    </audio>
 
+    <!-- main -->
+    <div class="main">
+        <div class="container">
+            <div class="top">
+                <div id="left" class="push">
+                    <h3 id="nameFirst">Princess Leia</h3>
+                    <img src="assets/images/leya.jpg" alt="Leya">
+                    <p>120</p>
+                </div>
+                <div id="leftMiddle" class="push">
+                    <h3>Chewbacca</h3>
+                    <img src="assets/images/chubaka.jpg" alt="Chubaka">
+                    <p>140</p>
+                </div>
+                <div id="rightMiddle" class="push">
+                    <h3>Rey</h3>
+                    <img src="assets/images/rey.png" alt="Rey">
+                    <p>90</p>
+                </div>
+                <div id="right" class="push">
+                    <h3>Darth Vader</h3>
+                    <img src="assets/images/dart.jpg" alt="Dart">
+                    <p>180</p>
+                </div>
+            </div>
+            <div class="top2">
+                <h3 id="enemy"></h3>
+                <div id="topLeft" class="pushSecond">
+                    <h3 id="nameSecondL"></h3>
+                    <div id="newSecondL"></div>
+                    <p id="scoreSecondL"></p>
+                </div>
+                <div id="topMiddle" class="pushSecond">
+                    <h3 id="nameSecondM"></h3>
+                    <div id="newSecondM"></div>
+                    <p id="scoreSecondM"></p>
+
+                </div>
+                <div id="topRight" class="pushSecond">
+                    <h3 id="nameSecondR"></h3>
+                    <div id="newSecondR"></div>
+                    <p id="scoreSecondR"></p>
+
+                </div>
+
+
+            </div>
+
+            <div class="bottom">
+                <div class="bottomLeft">
+                    <h3 id="nameL"></h3>
+                    <div id="newL"></div>
+                    <p id="scoreL"></p>
+                </div>
+                <div class="bottomMiddle">
+                    <div id="vs"></div>
+                </div>
+                <div class="bottomRight">
+                    <h3 id="nameR"></h3>
+                    <div id="newR"></div>
+                    <p id="scoreR"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end of main -->
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>

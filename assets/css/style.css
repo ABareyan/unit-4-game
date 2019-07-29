@@ -4,6 +4,138 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #464646;
     color: #fff;
+}
+
+@font-face {
+    font-family: STARWARS;
+    src: url("../font/STARWARS.eot") format("eot"), url("../font/STARWARS.woff") format("woff"), url("../font/STARWARS.ttf") format("truetype"), url("../font/STARWARS.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: STARWARS;
+    font-size: 4em;
+    text-align: center;
+    text-shadow: 3px 3px 2px rgb(185, 146, 146);
+    color: #4d4d4f;
+    padding: 15px;
+}
+
+h3,
+p {
+    color: #a2a2ac;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.4em;
+}
+
+header {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    /* border: 1px solid #fff; */
+}
+
+#left,
+#leftMiddle,
+#rightMiddle,
+#right {
+    float: left;
+    padding: 0 30px;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.top {
+    /* border: 1px solid #fff; */
+    width: 55%;
+    height: 250px;
+    float: left;
+}
+
+.top img {
+    width: 150px;
+    box-shadow: 4px 4px 5px rgb(185, 146, 146);
+}
+
+.top img:hover {
+    width: 155px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgb(185, 146, 146);
+}
+
+.top2 {
+    /* border: 1px solid #fff; */
+    width: 40%;
+    height: 250px;
+    float: left;
+}
+
+#topLeft,
+#topMiddle,
+#topRight {
+    float: left;
+    /* border: 1px solid #fff; */
+    margin: 0 15px;
+    width: 28%;
+    height: 190px;
+}
+
+.bottom {
+    clear: both;
+    /* border: 1px solid #fff; */
+    width: 40%;
+    height: 400px;
+}
+
+#new {
+    margin: 40px 20px;
+}
+
+#newL img,
+#newR img {
+    width: 180px;
+    box-shadow: 5px 5px 5px rgb(185, 146, 146);
+    margin: 10px;
+}
+
+.bottomLeft,
+.bottomMiddle,
+.bottomRight {
+    float: left;
+    /* border: 1px solid #fff; */
+    margin: 20px;
+}
+
+.bottomLeft,
+.bottomRight {
+    width: 30%;
+    height: 350px;
+}
+
+.bottomMiddle {
+    width: 20%;
+    height: 350px;
+}
+
+.top2 img {
+    width: 100px;
+    box-shadow: 5px 5px 6px rgb(243, 9, 9);
+    margin-left: 45px;
+}
+
+.top2 img:hover {
+    width: 105px;
+    cursor: pointer;
+}
+
+#vs img {
+    margin: 120px 25px;
+    width: 80px;
 }
