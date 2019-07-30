@@ -495,7 +495,7 @@ $(document).ready(function() {
                     $('.buttonGameStart').html("");
                     $('#comment').text('Press "Play Again" button for play again');
                     $('#userCount').text("");
-                    $('#gameOver').text(userUpper + " IS WIN");
+                    $('#gameOver').text(userUpper + " HAS WON!");
                     $('#winner').html(winnerImage);
 
                     $('#enemyCount').hide();
