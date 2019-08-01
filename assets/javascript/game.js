@@ -423,10 +423,15 @@ $(document).ready(function() {
 
         // change enemy character
         if (enemyScore <= 0) {
+            $('.buttonGameStart').html("");
 
             userCount += 60;
+            $('#scoreL').text(userCount);
             count++;
 
+            if (count === 2) {
+                $('#enemy').text(userName + " has the last enemy");
+            }
             $('.bottomRight').animate({
                     opacity: '1'
                 },
@@ -435,7 +440,6 @@ $(document).ready(function() {
                     $('#nameR').html("");
                     $('#newR').html("");
                     $('#scoreR').text("");
-                    $('.buttonGameStart').html("");
                 });
 
             $('#comment').text("You have defeated " + enemyName + " you can choose to fight another enemy from right");
@@ -447,7 +451,6 @@ $(document).ready(function() {
             start = true;
         }
 
-
         // lose
         if (userCount <= 0) {
             sound.pause();
@@ -458,7 +461,7 @@ $(document).ready(function() {
                 "slow", 'swing',
                 function() {
                     $('.buttonGameStart').html("");
-                    $('#comment').text("You've been defeated press Play Again button for play again");
+                    $('#comment').text("You've been defeated press 'Play Again' button for play again");
                     $('#userCount').text("");
                     $('#gameOver').text("GAME OVER");
                     $('#enemyCount').hide();
@@ -486,6 +489,7 @@ $(document).ready(function() {
         if (count === 3) {
             userUpper = userName.toUpperCase();
             sound.pause();
+
 
             $('.buttonGameStart').animate({
                     opacity: '1'
