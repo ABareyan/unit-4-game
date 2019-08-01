@@ -16,6 +16,7 @@ var enemyName; // for enemy full name
 var count = 0; // if character win
 var userUpper; // upper case of character full name
 var winnerImage; // image of character if win
+var userCounter = 0; // for increase Attack Power
 
 var sound = document.getElementById("star"); // sound
 
@@ -25,8 +26,8 @@ var leia = {
     image: '<img src="assets/images/leya.jpg" alt="Leia">',
     fullName: 'Princess Leia',
     healthPoints: 120,
-    attackPower: 25,
-    counterAttackPower: 25
+    attackPower: 20,
+    counterAttackPower: 20
 }
 
 var chubaka = {
@@ -34,8 +35,8 @@ var chubaka = {
     image: '<img src="assets/images/chubaka.jpg" alt="Chewbacca">',
     fullName: 'Chewbacca',
     healthPoints: 140,
-    attackPower: 20,
-    counterAttackPower: 20
+    attackPower: 9,
+    counterAttackPower: 9
 }
 
 var rey = {
@@ -43,8 +44,8 @@ var rey = {
     image: '<img src="assets/images/rey.png" alt="Rey">',
     fullName: 'Rey',
     healthPoints: 160,
-    attackPower: 15,
-    counterAttackPower: 15
+    attackPower: 6,
+    counterAttackPower: 6
 }
 
 var dart = {
@@ -52,8 +53,8 @@ var dart = {
     image: '<img src="assets/images/dart.jpg" alt="Dart">',
     fullName: 'Darth Vader',
     healthPoints: 180,
-    attackPower: 10,
-    counterAttackPower: 10
+    attackPower: 3,
+    counterAttackPower: 3
 }
 
 $(document).ready(function() {
@@ -108,6 +109,7 @@ $(document).ready(function() {
             userCount = leia.healthPoints;
             userAttackPower = leia.attackPower;
             userName = leia.fullName;
+            userCounter = leia.counterAttackPower;
             winnerImage = leia.image;
 
             $('.bottomLeft').animate({
@@ -125,6 +127,7 @@ $(document).ready(function() {
             userCount = chubaka.healthPoints;
             userAttackPower = chubaka.attackPower;
             userName = chubaka.fullName;
+            userCounter = chubaka.counterAttackPower;
             winnerImage = chubaka.image;
 
             $('.bottomLeft').animate({
@@ -142,6 +145,7 @@ $(document).ready(function() {
             userCount = rey.healthPoints;
             userAttackPower = rey.attackPower;
             userName = rey.fullName;
+            userCounter = rey.counterAttackPower;
             winnerImage = rey.image;
 
             $('.bottomLeft').animate({
@@ -159,6 +163,7 @@ $(document).ready(function() {
             userCount = dart.healthPoints;
             userAttackPower = dart.attackPower;
             userName = dart.fullName;
+            userCounter = dart.counterAttackPower;
             winnerImage = dart.image;
 
             $('.bottomLeft').animate({
@@ -425,7 +430,6 @@ $(document).ready(function() {
         if (enemyScore <= 0) {
             $('.buttonGameStart').html("");
 
-            userCount += 60;
             $('#scoreL').text(userCount);
             count++;
 
@@ -445,8 +449,7 @@ $(document).ready(function() {
             $('#comment').text("You have defeated " + enemyName + " you can choose to fight another enemy from right");
             $('#userCount').text("");
             $('#enemyCount').text("");
-
-            userAttackPower += enemyAttackPower;
+            userAttackPower += userCounter;
 
             start = true;
         }
@@ -489,6 +492,8 @@ $(document).ready(function() {
         if (count === 3) {
             userUpper = userName.toUpperCase();
             sound.pause();
+
+
 
 
             $('.buttonGameStart').animate({
