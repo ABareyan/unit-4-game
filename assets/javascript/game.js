@@ -1,12 +1,7 @@
 var start = true; // for the choice character from enemy section
-var leiaFirst = false; // if user choice is Leia
-var leiaSecond = false; // if user choice enemy is Leia
-var chewbaccaFirst = false; // if user choice is Chewbacca
-var chewbaccaSecond = false; // if user choice enemy is Chewbacca
-var reyFirst = false; // if user choice is Rey
-var reySecond = false; // if user choice enemy is Rey
-var darthFirst = false; // if user choice is Darth
-var darthSecond = false; // if user choice enemy is Rey
+var first; // first choise
+var second; // enemy coice
+var user; // character name
 var userCount = 0; // for user health points
 var userAttackPower = 0; // for user attack power
 var userName; // for user full name
@@ -16,9 +11,10 @@ var enemyName; // for enemy full name
 var count = 0; // if character win
 var userUpper; // upper case of character full name
 var winnerImage; // image of character if win
+var enemyImage; // image of enemy
 var userCounter = 0; // for increase Attack Power
 
-var sound = document.getElementById("star"); // sound
+var sound = new Audio("assets/sound/star.mp3"); // sound
 
 // object with characters
 var leia = {
@@ -27,7 +23,7 @@ var leia = {
     fullName: 'Princess Leia',
     healthPoints: 120,
     attackPower: 20,
-    counterAttackPower: 20
+    counterAttackPower: 20,
 }
 
 var chubaka = {
@@ -36,7 +32,7 @@ var chubaka = {
     fullName: 'Chewbacca',
     healthPoints: 140,
     attackPower: 9,
-    counterAttackPower: 9
+    counterAttackPower: 9,
 }
 
 var rey = {
@@ -45,7 +41,7 @@ var rey = {
     fullName: 'Rey',
     healthPoints: 160,
     attackPower: 6,
-    counterAttackPower: 6
+    counterAttackPower: 6,
 }
 
 var dart = {
@@ -54,12 +50,33 @@ var dart = {
     fullName: 'Darth Vader',
     healthPoints: 180,
     attackPower: 3,
-    counterAttackPower: 3
+    counterAttackPower: 3,
 }
+
+// to show charachters when upload
+$("#left").data("value", leia);
+$('#nameLl').html(leia.fullName);
+$('#imgL').html(leia.image);
+$('#pL').text(leia.healthPoints);
+
+$("#leftMiddle").data("value", chubaka);
+$('#nameLm').text(chubaka.fullName);
+$('#imgLm').html(chubaka.image);
+$('#pLm').text(chubaka.healthPoints);
+
+$("#rightMiddle").data("value", rey);
+$('#nameRm').text(rey.fullName);
+$('#imgRm').html(rey.image);
+$('#pRm').text(rey.healthPoints);
+
+$("#right").data("value", dart);
+$('#nameRr').text(dart.fullName);
+$('#imgR').html(dart.image);
+$('#pR').text(dart.healthPoints);
 
 $(document).ready(function() {
 
-
+    // erase all characters from characters list
     function erase() {
         $('#left').animate({
                 opacity: '0.1'
@@ -94,7 +111,7 @@ $(document).ready(function() {
     // for choosing character
     $('.push').click(function() {
 
-        erase(); // erase all characters from characters list
+        erase();
 
         $('#enemy').animate({
                 opacity: '1'
@@ -102,167 +119,122 @@ $(document).ready(function() {
             function() {
                 $('#enemy').html("<h2>Enemies available to attack</h2>");
             });
+
+
         // choosing character for fight
-        if ($(this).attr("id") === "left") {
-            leiaFirst = true;
-            leiaSecond = true;
-            userCount = leia.healthPoints;
-            userAttackPower = leia.attackPower;
-            userName = leia.fullName;
-            userCounter = leia.counterAttackPower;
-            winnerImage = leia.image;
+        first = $(this).data('value');
+        userCount = first.healthPoints;
+        userAttackPower = first.attackPower;
+        userName = first.fullName;
+        user = first.name
+        userCounter = first.counterAttackPower;
+        winnerImage = first.image;
 
-            $('.bottomLeft').animate({
-                    opacity: '1'
-                },
-                "slow", 'swing',
-                function() {
-                    $('#nameL').html(leia.fullName);
-                    $('#newL').html(leia.image);
-                    $('#scoreL').text(userCount);
-                });
-        } else if ($(this).attr("id") === "leftMiddle") {
-            chewbaccaFirst = true;
-            chewbaccaSecond = true;
-            userCount = chubaka.healthPoints;
-            userAttackPower = chubaka.attackPower;
-            userName = chubaka.fullName;
-            userCounter = chubaka.counterAttackPower;
-            winnerImage = chubaka.image;
+        $('.bottomLeft').animate({
+                opacity: '1'
+            },
+            "slow", 'swing',
+            function() {
+                $('#nameL').html(userName);
+                $('#newL').html(winnerImage);
+                $('#scoreL').text(userCount);
+            });
 
-            $('.bottomLeft').animate({
-                    opacity: '1'
-                },
-                "slow", 'swing',
-                function() {
-                    $('#nameL').html(chubaka.fullName);
-                    $('#newL').html(chubaka.image);
-                    $('#scoreL').text(userCount);
-                });
-        } else if ($(this).attr("id") === "rightMiddle") {
-            reyFirst = true;
-            reySecond = true;
-            userCount = rey.healthPoints;
-            userAttackPower = rey.attackPower;
-            userName = rey.fullName;
-            userCounter = rey.counterAttackPower;
-            winnerImage = rey.image;
-
-            $('.bottomLeft').animate({
-                    opacity: '1'
-                },
-                "slow", 'swing',
-                function() {
-                    $('#nameL').html(rey.fullName);
-                    $('#newL').html(rey.image);
-                    $('#scoreL').text(userCount);
-                });
-        } else {
-            darthFirst = true;
-            darthSecond = true;
-            userCount = dart.healthPoints;
-            userAttackPower = dart.attackPower;
-            userName = dart.fullName;
-            userCounter = dart.counterAttackPower;
-            winnerImage = dart.image;
-
-            $('.bottomLeft').animate({
-                    opacity: '1'
-                },
-                "slow", 'swing',
-                function() {
-                    $('#nameL').html(dart.fullName);
-                    $('#newL').html(dart.image);
-                    $('#scoreL').text(userCount);
-                });
-        }
 
         // change enemies place
 
-        if (leiaFirst) {
+        if (user === "leia") {
             $('.top2').animate({
                     opacity: '1'
                 },
                 "slow", 'swing',
                 function() {
+                    $("#topLeft").data("value", chubaka);
                     $('#nameSecondL').html(chubaka.fullName);
                     $('#newSecondL').html(chubaka.image);
                     $('#scoreSecondL').text(chubaka.healthPoints);
 
+                    $("#topMiddle").data("value", rey);
                     $('#nameSecondM').html(rey.fullName);
                     $('#newSecondM').html(rey.image);
                     $('#scoreSecondM').text(rey.healthPoints);
 
+                    $("#topRight").data("value", dart);
                     $('#nameSecondR').html(dart.fullName);
                     $('#newSecondR').html(dart.image);
                     $('#scoreSecondR').text(dart.healthPoints);
                 });
-            leiaFirst = false;
 
-        } else if (chewbaccaFirst) {
+        } else if (user === "chubaka") {
             $('.top2').animate({
                     opacity: '1'
                 },
                 "slow", 'swing',
                 function() {
+                    $("#topLeft").data("value", leia);
                     $('#nameSecondL').html(leia.fullName);
                     $('#newSecondL').html(leia.image);
                     $('#scoreSecondL').text(leia.healthPoints);
 
+                    $("#topMiddle").data("value", rey);
                     $('#nameSecondM').html(rey.fullName);
                     $('#newSecondM').html(rey.image);
                     $('#scoreSecondM').text(rey.healthPoints);
 
+                    $("#topRight").data("value", dart);
                     $('#nameSecondR').html(dart.fullName);
                     $('#newSecondR').html(dart.image);
                     $('#scoreSecondR').text(dart.healthPoints);
                 });
-            chewbaccaFirst = false;
 
-        } else if (reyFirst) {
+        } else if (user === "rey") {
             $('.top2').animate({
                     opacity: '1'
                 },
                 "slow", 'swing',
                 function() {
+                    $("#topLeft").data("value", leia);
                     $('#nameSecondL').html(leia.fullName);
                     $('#newSecondL').html(leia.image);
                     $('#scoreSecondL').text(leia.healthPoints);
 
+                    $("#topMiddle").data("value", chubaka);
                     $('#nameSecondM').html(chubaka.fullName);
                     $('#newSecondM').html(chubaka.image);
                     $('#scoreSecondM').text(chubaka.healthPoints);
 
+                    $("#topRight").data("value", dart);
                     $('#nameSecondR').html(dart.fullName);
                     $('#newSecondR').html(dart.image);
                     $('#scoreSecondR').text(dart.healthPoints);
                 });
-            reyFirst = false;
 
-        } else if (darthFirst) {
+        } else if (user === "dart") {
             $('.top2').animate({
                     opacity: '1'
                 },
                 "slow", 'swing',
                 function() {
+                    $("#topLeft").data("value", leia);
                     $('#nameSecondL').html(leia.fullName);
                     $('#newSecondL').html(leia.image);
                     $('#scoreSecondL').text(leia.healthPoints);
 
+                    $("#topMiddle").data("value", chubaka);
                     $('#nameSecondM').html(chubaka.fullName);
                     $('#newSecondM').html(chubaka.image);
                     $('#scoreSecondM').text(chubaka.healthPoints);
 
+                    $("#topRight").data("value", rey);
                     $('#nameSecondR').html(rey.fullName);
                     $('#newSecondR').html(rey.image);
                     $('#scoreSecondR').text(rey.healthPoints);
                 });
-            darthFirst = false;
         }
     });
 
 
-    // choosing character for fight
+    // choosing enemy for fight
     $('.pushSecond').click(function() {
         $('#comment').animate({
                 opacity: '1'
@@ -282,124 +254,49 @@ $(document).ready(function() {
                     $('#vs').html('<img src="assets/images/vs1.png" alt="VS">');
                 });
 
+            second = $(this).data('value');
+            enemyScore = second.healthPoints;
+            enemyAttackPower = second.counterAttackPower;
+            enemyName = second.fullName;
+            enemyImage = second.image;
+
+            $('.bottomRight').animate({
+                    opacity: '1'
+                },
+                "slow", 'swing',
+                function() {
+                    $('#nameR').html(enemyName);
+                    $('#newR').html(enemyImage);
+                    $('#scoreR').text(enemyScore);
+
+                });
+
             if ($(this).attr("id") === "topLeft") {
                 $('#topLeft').animate({
-                        opacity: '0.1'
+                        opacity: '1'
                     },
-                    "slow", 'swing',
+                    "slow", "swing",
                     function() {
                         $('#topLeft').hide();
                     });
-
-                if (leiaSecond) {
-                    enemyScore = chubaka.healthPoints;
-                    enemyAttackPower = chubaka.counterAttackPower;
-                    enemyName = chubaka.fullName;
-
-                    $('.bottomRight').animate({
-                            opacity: '1'
-                        },
-                        "slow", 'swing',
-                        function() {
-                            $('#nameR').html(chubaka.fullName);
-                            $('#newR').html(chubaka.image);
-                            $('#scoreR').text(enemyScore);
-                        });
-                } else {
-                    enemyScore = leia.healthPoints;
-                    enemyAttackPower = leia.counterAttackPower;
-                    enemyName = leia.fullName;
-
-                    $('.bottomRight').animate({
-                            opacity: '1'
-                        },
-                        "slow", 'swing',
-                        function() {
-                            $('#nameR').html(leia.fullName);
-                            $('#newR').html(leia.image);
-                            $('#scoreR').text(enemyScore);
-                        });
-                }
-
             } else if ($(this).attr("id") === "topMiddle") {
-                console.log(this);
                 $('#topMiddle').animate({
-                        opacity: '0.1'
+                        opacity: '1'
                     },
-                    "slow", 'swing',
+                    "slow", "swing",
                     function() {
                         $('#topMiddle').hide();
                     });
-
-                if (leiaSecond || chewbaccaSecond) {
-                    enemyScore = rey.healthPoints;
-                    enemyAttackPower = rey.counterAttackPower;
-                    enemyName = rey.fullName;
-
-                    $('.bottomRight').animate({
-                            opacity: '1'
-                        },
-                        "slow", 'swing',
-                        function() {
-                            $('#nameR').html(rey.fullName);
-                            $('#newR').html(rey.image);
-                            $('#scoreR').text(enemyScore);
-                        });
-                } else {
-                    enemyScore = chubaka.healthPoints;
-                    enemyAttackPower = chubaka.counterAttackPower;
-                    enemyName = chubaka.fullName;
-
-                    $('.bottomRight').animate({
-                            opacity: '1'
-                        },
-                        "slow", 'swing',
-                        function() {
-                            $('#nameR').html(chubaka.fullName);
-                            $('#newR').html(chubaka.image);
-                            $('#scoreR').text(enemyScore);
-                        });
-                }
-
             } else if ($(this).attr("id") === "topRight") {
                 $('#topRight').animate({
-                        opacity: '0.1'
+                        opacity: '1'
                     },
-                    "slow", 'swing',
+                    "slow", "swing",
                     function() {
                         $('#topRight').hide();
                     });
-
-                if (darthSecond) {
-                    enemyScore = rey.healthPoints;
-                    enemyAttackPower = rey.counterAttackPower;
-                    enemyName = rey.fullName;
-
-                    $('.bottomRight').animate({
-                            opacity: '1'
-                        },
-                        "slow", 'swing',
-                        function() {
-                            $('#nameR').html(rey.fullName);
-                            $('#newR').html(rey.image);
-                            $('#scoreR').text(enemyScore);
-                        });
-                } else {
-                    enemyScore = dart.healthPoints;
-                    enemyAttackPower = dart.counterAttackPower;
-                    enemyName = dart.fullName;
-
-                    $('.bottomRight').animate({
-                            opacity: '1'
-                        },
-                        "slow", 'swing',
-                        function() {
-                            $('#nameR').html(dart.fullName);
-                            $('#newR').html(dart.image);
-                            $('#scoreR').text(enemyScore);
-                        });
-                }
             }
+
         }
 
         // create button attack

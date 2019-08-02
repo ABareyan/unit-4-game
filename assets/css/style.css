@@ -1,5 +1,5 @@
 body {
-    background-image: url("../images/BYulaG.jpg");
+    background-image: url("../images/BYulaG960.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -41,7 +41,6 @@ header {
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 40px;
-    /* border: 1px solid #fff; */
 }
 
 #left,
@@ -49,7 +48,6 @@ header {
 #rightMiddle,
 #right {
     float: left;
-    /* padding: 0 30px; */
     margin: 10px;
 }
 
@@ -58,7 +56,6 @@ header {
 }
 
 .top {
-    /* border: 1px solid #fff; */
     width: 55%;
     height: 250px;
     float: left;
@@ -84,7 +81,6 @@ header {
 }
 
 .top2 {
-    /* border: 1px solid #fff; */
     width: 40%;
     height: 250px;
     float: left;
@@ -94,7 +90,6 @@ header {
 #topMiddle,
 #topRight {
     float: left;
-    /* border: 1px solid #fff; */
     margin: 0 10px;
     width: 28%;
     height: 190px;
@@ -102,7 +97,6 @@ header {
 
 .bottom {
     clear: both;
-    /* border: 1px solid #fff; */
     width: 50%;
     height: 350px;
 }
@@ -127,7 +121,6 @@ header {
 .bottomMiddle,
 .bottomRight {
     float: left;
-    /* border: 1px solid #fff; */
     margin: 20px;
 }
 
@@ -161,7 +154,6 @@ header {
 }
 
 .button {
-    /* border: 1px solid #fff; */
     width: 40%;
     height: 80px;
 }
@@ -239,7 +231,6 @@ button {
     #topMiddle,
     #topRight {
         float: left;
-        /* border: 1px solid #fff; */
         margin: 0;
         width: 30%;
         height: 190px;
@@ -261,7 +252,6 @@ button {
     .bottomMiddle,
     .bottomRight {
         float: left;
-        /* border: 1px solid #fff; */
         margin: 20px;
     }
     .bottomMiddle {
@@ -362,7 +352,6 @@ button {
     #topMiddle,
     #topRight {
         float: left;
-        /* border: 1px solid #fff; */
         width: 32%;
         height: 170px;
         margin: 0 1px;
@@ -383,7 +372,6 @@ button {
     .bottomMiddle,
     .bottomRight {
         float: left;
-        /* border: 1px solid #fff; */
         margin: 20px;
     }
     .bottomMiddle {
