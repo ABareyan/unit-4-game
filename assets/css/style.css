@@ -175,14 +175,6 @@ button {
 }
 
 @media screen and (min-width: 979px) and (max-width: 1250px) {
-    body {
-        background-image: url("../images/BYulaG960.jpg");
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        color: #000;
-    }
     #left,
     #leftMiddle,
     #rightMiddle,
@@ -287,14 +279,6 @@ button {
 }
 
 @media screen and (min-width: 767px) and (max-width: 980px) {
-    body {
-        background-image: url("../images/BYulaG960.jpg");
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        color: #000;
-    }
     h1 {
         font-size: 3em;
     }
